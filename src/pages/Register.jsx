@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserPlus } from 'lucide-react';
+import { authService } from '../services/api';
 
 const Register = () => {
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,11 +13,35 @@ const Register = () => {
     confirmPassword: '',
     role: 'FARMER'
   });
+  const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implement registration logic
-    console.log(formData);
+    
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setError('');
+    
+    try {
+      await authService.register(
+        formData.name,
+        formData.email,
+        formData.password,
+        formData.role
+      );
+      
+      // Redirect to login page after successful registration
+      navigate('/login', { state: { message: 'Registration successful! Please login.' } });
+    } catch (err) {
+      setError(err.response?.data?.message || 'Registration failed');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -24,6 +51,12 @@ const Register = () => {
         <h1 className="text-3xl font-bold text-gray-800">Create Account</h1>
         <p className="text-gray-600">Join AgriShop today</p>
       </div>
+
+      {error && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+          {error}
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
@@ -114,9 +147,10 @@ const Register = () => {
 
         <button
           type="submit"
-          className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors"
+          disabled={isSubmitting}
+          className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors disabled:bg-green-400"
         >
-          Create Account
+          {isSubmitting ? 'Creating Account...' : 'Create Account'}
         </button>
       </form>
 
