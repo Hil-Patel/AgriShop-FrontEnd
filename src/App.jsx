@@ -19,7 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/crops" element={<CropListing />} />
             <Route path="/create-crop" element={<CreateCrop />} />
-            <Route path="/crop/:id" element={<BiddingPage />} />
+            <Route path="/crop/:cropId" element={<BiddingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
