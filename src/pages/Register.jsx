@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserPlus } from 'lucide-react';
-import { authService } from '../services/api';
+import { authService } from '../api';
 
 const Register = () => {
   const navigate = useNavigate();
