@@ -5,9 +5,6 @@ const API_URL = 'http://localhost:8080/api';
 // Create axios instance
 const api = axios.create({
   baseURL: API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
 });
 
 // Add a request interceptor to add the auth token to requests
@@ -100,8 +97,8 @@ export const cropService = {
 
 // Bid services
 export const bidService = {
-  placeBid: async (cropId, amount) => {
-    return api.post('/bids', { cropId, amount });
+  placeBid: async (v) => {
+    return api.post('/bids', v);
   },
 
   getBidsByCrop: async (cropId) => {

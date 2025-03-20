@@ -60,9 +60,7 @@ const Register = () => {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">
-            Full Name
-          </label>
+          <label className="block text-sm font-medium text-gray-700">Full Name</label>
           <input
             type="text"
             value={formData.name}
@@ -74,9 +72,7 @@ const Register = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">
-            Email Address
-          </label>
+          <label className="block text-sm font-medium text-gray-700">Email Address</label>
           <input
             type="email"
             value={formData.email}
@@ -88,9 +84,7 @@ const Register = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">
-            Password
-          </label>
+          <label className="block text-sm font-medium text-gray-700">Password</label>
           <input
             type="password"
             value={formData.password}
@@ -102,9 +96,7 @@ const Register = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">
-            Confirm Password
-          </label>
+          <label className="block text-sm font-medium text-gray-700">Confirm Password</label>
           <input
             type="password"
             value={formData.confirmPassword}
@@ -116,17 +108,13 @@ const Register = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">
-            I am a
-          </label>
+          <label className="block text-sm font-medium text-gray-700">I am a</label>
           <div className="grid grid-cols-2 gap-4">
             <button
               type="button"
               onClick={() => setFormData({ ...formData, role: 'FARMER' })}
               className={`p-3 rounded-lg border ${
-                formData.role === 'FARMER'
-                  ? 'bg-green-600 text-white border-green-600'
-                  : 'border-gray-300 hover:border-green-600'
+                formData.role === 'FARMER' ? 'bg-green-600 text-white border-green-600' : 'border-gray-300 hover:border-green-600'
               }`}
             >
               Farmer
@@ -135,9 +123,7 @@ const Register = () => {
               type="button"
               onClick={() => setFormData({ ...formData, role: 'BUYER' })}
               className={`p-3 rounded-lg border ${
-                formData.role === 'BUYER'
-                  ? 'bg-green-600 text-white border-green-600'
-                  : 'border-gray-300 hover:border-green-600'
+                formData.role === 'BUYER' ? 'bg-green-600 text-white border-green-600' : 'border-gray-300 hover:border-green-600'
               }`}
             >
               Buyer
@@ -156,9 +142,7 @@ const Register = () => {
 
       <p className="mt-6 text-center text-gray-600">
         Already have an account?{' '}
-        <Link to="/login" className="text-green-600 hover:text-green-700">
-          Sign in
-        </Link>
+        <Link to="/login" className="text-green-600 hover:text-green-700">Sign in</Link>
       </p>
     </div>
   );
