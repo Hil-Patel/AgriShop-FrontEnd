@@ -42,10 +42,6 @@ const CropListing = () => {
             />
             <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
           </div>
-          <button className="flex items-center space-x-2 px-4 py-2 border rounded-lg hover:bg-gray-50">
-            <Filter className="h-5 w-5" />
-            <span>Filter</span>
-          </button>
         </div>
       </div>
 

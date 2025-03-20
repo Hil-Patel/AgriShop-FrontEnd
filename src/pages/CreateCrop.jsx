@@ -147,7 +147,6 @@ const CreateCrop = () => {
               className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600"
               required
             />
-            <Calendar className="absolute right-3 top-2.5 h-5 w-5 text-gray-400" />
           </div>
         </div>
 

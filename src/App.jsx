@@ -10,13 +10,15 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 
 function App() {
+  const token =localStorage.getItem("token");
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
         <Navbar />
         <main className="container mx-auto px-4 py-8">
           <Routes>
-            <Route path="/" element={<Home />} />
+            {token===null?<Route path="/" element={<Home />} />:<Route path="/" element={<Dashboard />} />}
+            
             <Route path="/crops" element={<CropListing />} />
             <Route path="/create-crop" element={<CreateCrop />} />
             <Route path="/crop/:cropId" element={<BiddingPage />} />
