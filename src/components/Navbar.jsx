@@ -28,6 +28,9 @@ const Navbar = () => {
             <Link to="/create-crop" className="hover:text-green-200 transition-colors">
               Sell Crops
             </Link>
+            <Link to="/dashboard" className="hover:text-green-200 transition-colors">
+              dashboard
+            </Link>
           </div>
 
           {token ? (
