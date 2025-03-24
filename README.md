@@ -36,7 +36,7 @@ AgriShop is a web application where **farmers** can lease their crops for biddin
 
 1. **Clone the repository**  
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/Hil-Patel/AgriShop-FrontEnd.git
    cd frontend
 2. **Install Dependencies:**
    ```bash
